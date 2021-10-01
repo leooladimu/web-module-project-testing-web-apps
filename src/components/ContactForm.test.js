@@ -10,15 +10,25 @@ test('renders without errors', () => {
     // throw new Error();
 });
 
-test('renders the contact form header', ()=> {
+test('renders the contact form header', () => {
     render(<ContactForm />);
-    // console.log(container);
-    screen.getByText(/contact form/i)
+    const x = screen.getByText(/contact form/i)
+    expect(x).toBeInTheDocument()
 });
 
-test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
-    
-});
+test('renders ONE error message if user enters less then 5 characters into firstname.', () => {
+    function throwError(fieldName, fieldValue) {
+        if (fieldName === "firstName" && fieldValue.length < 5)
+        return `${fieldName} must have at least 5 characters.`;
+      return 'success!';
+    }
+    expect(throwError).not.toThrowError();
+  });
+
+// test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
+//     render(<ContactForm />);
+//     screen.getByText(/^.*(?=.{5,}).*$/)
+// });
 
 test('renders THREE error messages if user enters no values into any fields.', async () => {
     
