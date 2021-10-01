@@ -3,9 +3,11 @@ import {render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ContactForm from './ContactForm';
+import App from '../App';
 
-test('renders without errors', ()=>{
-    
+test('renders without errors', () => {
+    render(<App />);
+    // throw new Error();
 });
 
 test('renders the contact form header', ()=> {
