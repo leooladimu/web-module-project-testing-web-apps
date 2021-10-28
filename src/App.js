@@ -3,6 +3,7 @@ import React from "react";
 import ContactForm from "./components/ContactForm";
 
 export default function App() {
+  console.log('x');
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark">
